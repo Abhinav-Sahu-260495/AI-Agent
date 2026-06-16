@@ -612,23 +612,22 @@ Final Response:
 }
 }
 
-📊 TIMING BREAKDOWN
 
-Total Request Time: ~10-15 seconds
+Role Overview:
+The Senior GenAI Analyst partners closely with Product, Sales, Marketing, and Engineering teams to apply cutting edge Gen AI tools and techniques, along with advanced analytics to solve complex problems across prospecting, existing customer, sales and data journeys. This role focuses on identifying customer intent, improving decision-making and boosting sales productivity by focusing on generating insights embedded in the sales and customer workflows. This role requires deep technical judgment, hands-on modeling experience, and the ability to translate complex customer, sales and behavioral data into scalable machine learning and LLM driven solutions.
 
-Operation	Time
-Middleware processing	~10ms
-Route matching + Pydantic validation	~20ms
-Node: START	~5ms
-Node: PREPARE_LOGS	~50ms
-Node: BUILD_GLOSSARY	~30ms
-Node: LLM_ANALYST	
-├─ Build prompt	~10ms
-├─ Submit to Vegas	~500ms
-├─ Poll for result (retry loop)	5-10s 🔥
-├─ Parse JSON	~20ms
-Node: FORMAT_OUTPUT	~10ms
-Log transaction to DB	~200ms
-Build response + JSON serialization	~30ms
+Required Skills & Qualifications:
+* Strong proficiency in Python and SQL, with the ability to implement, test, and iterate on ML / LLM-based solutions efficiently
+* An expert in LLM including prompt engineering, creation of evaluation datasets, understanding LLM capabilities and limitations, and familiarity with LLM performance metrics
+* Knowledge of how to automate or fast track the prompt engineering process via latest techniques (Reinforcement Learning)
+* Familiarity using contemporary LLM frameworks and tooling such as LangChain and proven experience executing LLM / GenAI use cases in practical settings, such as prompt engineering, retrieval-augmented generation (RAG), and integration with data pipelines or downstream applications
+* Strong execution capability: Execution-oriented mindset with the ability to translate business questions into working, deployable ML solutions, prioritizing speed, correctness, and practical impact
+* Experience working with modern data and ML tooling, and comfort operating in fast-moving, cross-functional environments
+* Strong analytical and problem-solving skills, with a high level of reliability and accountability in delivering assigned work independently and on schedule
 
-Table name or table name doesn't have access, credentials don't have access to the table. So if we see here, we were giving this one, right? No metadata found for this particular.  No, that is not an error. That is just saying that there is no metadata. That means you'll have to read, you'll have to generate metadata for it.  So that won't be considered as an error. But if the table name doesn't make sense, if it is garbage or if the credentials don't have access to it, we'll have to show, this is an invalid name or credentials don't have access to this table. Okay, so, uh, are these like, uh, all the credentials user base, right?  Correct. Okay. We have an API metadata builder called test connection.  Okay. So you can call that API your, and with that API basically takes your connection details and database details and checks if the connection is valid. Okay.  So once you, once a user gives table details, you'll have to check that and then do the flow. Okay, so this is about the user level. How is it happening right now?  So it's like right now, any user is having access to any of the table, is it? No, no, for every credential, only certain, that is why you can't generate metadata for this soul. So if you click on generate metadata and you navigate to metadata window, you'll see an error there.  You see a 403. So that won't go through. That error will have to show it you, saying why it didn't go through.
+Nice to Have:
+* Banking Domain experience
+* Experience with reinforcement learning, fine-tuning, or/and lightweight RL-based approaches applied to LLMs or related models is a strong plus.
+* Familiarity with LLM agent design patterns, including debugging, monitoring, or iterating on multi-step or long-running executions in real-world environments is a plus.
+* Some research or exploratory experience (e.g., prototyping, experimenting with new techniques, reading and applying recent work), while maintaining a strong focus on execution and delivery, is a plus.
+
