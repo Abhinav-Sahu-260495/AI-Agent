@@ -631,3 +631,100 @@ Nice to Have:
 * Familiarity with LLM agent design patterns, including debugging, monitoring, or iterating on multi-step or long-running executions in real-world environments is a plus.
 * Some research or exploratory experience (e.g., prototyping, experimenting with new techniques, reading and applying recent work), while maintaining a strong focus on execution and delivery, is a plus.
 
+
+In Q-Verse, walk me through one complete RAG retrieval — from the moment a user types a question 
+to the moment context lands in the LLM prompt. Use the ThinkForge system as the example. 
+Include: how the query is embedded, what similarity metric is used (cosine/dot product/L2), 
+what the similarity threshold is for a cache hit, what top-k value we use, and exactly how 
+the retrieved context is formatted before being injected into the SQL generation prompt.
+
+In Q-Verse we use a hybrid BM25 + vector similarity search. What specific problem did 
+pure vector search fail at that required adding BM25? Give me a concrete example — 
+a type of query where pure vector search returns wrong results but hybrid fixes it. 
+What weight/ratio do we use between BM25 score and vector score in the final ranking?
+
+Show me the exact structure of the SQL Generator agent's system prompt in Q-Verse. 
+What are the sections in order? I need to know: (1) how the role/persona is defined, 
+(2) how database schema is injected — full DDL or compressed metadata?, (3) how 
+dialect-specific rules are given for BigQuery vs Teradata vs PostgreSQL, (4) how 
+few-shot examples are formatted, (5) what the output format instruction says. 
+Give me a simplified but realistic version I can describe in an interview.
+
+In Q-Verse, how is the confidence score (0.0-1.0) computed for each generated SQL query? 
+Is it: (a) the LLM asked in a separate prompt to self-rate its output, (b) rule-based 
+schema alignment checking, (c) a combination? What specific factors feed into the score — 
+schema match %, ambiguity level, query complexity? What exact threshold triggers a reject 
+(<0.5) vs a warning (0.5-0.7) vs acceptance (>0.7)? Show me the scoring logic.
+
+Does Q-Verse use MCP (Model Context Protocol) for any of its tool integrations? 
+If yes — which tools or data sources are connected via MCP, how is an MCP server 
+defined in the codebase, and what does a tool call through MCP look like compared 
+to a direct API call? If no — how are tool connections standardized across agents 
+(e.g. a custom tool adapter pattern)?
+
+Q-Verse has a benchmark suite of 100+ question-SQL pairs per catalog. Who created 
+these — engineers, business analysts, or were they auto-generated from production logs? 
+How is query accuracy measured — exact SQL match, result-set comparison, or LLM-as-judge? 
+How does A/B testing between Gemini Flash vs Pro work — same questions, compare outputs, 
+score on what criteria? How often is the benchmark run and what triggers a regression alert?
+
+In Q-Verse's MasterOrchestrator, when a user sends a message, how does the system 
+decide which agents to activate? Is the routing: (a) rule-based (keywords trigger specific 
+agents), (b) LLM-based (a classifier LLM reads the query and picks agents), or (c) hybrid? 
+Walk through a specific example — user asks "analyze my sales data from Q3 report" — 
+step by step which agents get activated and in what order, and what the dependency graph looks like.
+
+In Q-Verse, walk through the complete safety stack that prevents bad SQL from reaching 
+the database. Layer by layer: (1) what happens BEFORE the LLM is called — schema 
+whitelisting, role-based table access?, (2) what happens DURING generation — temperature 
+settings, output format enforcement?, (3) what happens AFTER generation — SQL syntax 
+validation, column name verification against schema?, (4) what happens if all 3 layers 
+fail — how does the system communicate the error to the user?
+
+In Q-Verse, when a user query arrives and the full schema has 500+ tables, walk through 
+the exact algorithm the Catalog Identifier Agent uses to select only the relevant 5-10 
+tables. Step by step: (1) does it run BM25 keyword match first or vector similarity first?, 
+(2) how are the two scores combined?, (3) what's the cutoff for inclusion?, 
+(4) after tables are selected, how are individual columns pruned?, 
+(5) what's the average token count before and after pruning for a typical query?
+
+In Q-Verse's SSE streaming implementation, walk through what happens technically 
+when the SQL Generator starts producing output. How does the FastAPI server stream 
+partial results — does it stream token by token or in chunks? How are different 
+event types (SQL chunk, summary chunk, visualization) differentiated in the SSE stream? 
+What happens if the client disconnects mid-stream — is there cleanup logic?
+Why did we choose SSE over WebSockets for this use case?
+
+In Q-Verse, how does the Vega Visualization Agent work? Does it generate Vega-Lite 
+JSON specs from SQL results, or does it call a separate visualization library? 
+How does it decide what chart type to use — bar, line, pie — for a given query result? 
+What happens when results have 10,000+ rows — does it sample, aggregate, or paginate? 
+How is the visualization streamed back to the user via SSE?
+
+In Q-Verse, how does the system handle multi-turn conversations? If a user asks 
+"show me top 10 accounts by revenue" then follows up with "now filter to just west region" 
+— how does the SQL Generator know to modify the previous query? Where is conversation 
+history stored — Redis, PostgreSQL, or passed in every API request? How many previous 
+turns are included in context? Is there a summarization step for long conversations 
+to stay within token limits?
+
+Explain exactly how Q-Verse's ambiguity detection works. What types of ambiguity 
+does it catch — time period ambiguity ("recent"), metric ambiguity ("top"), 
+entity ambiguity ("sales" could mean revenue or units), join ambiguity (multiple 
+paths between tables)? Does ambiguity detection happen in a separate agent or inside 
+the SQL Generator prompt? When ambiguity is detected, does the system ask a clarifying 
+question to the user or proceed with a default assumption + note? 
+Give me one concrete example end to end.
+
+
+
+What is the most interesting failure or bug we encountered in Q-Verse's agent system? 
+For example — an agent that timed out and caused cascading failures, a routing decision 
+that picked the wrong agent, a dependency deadlock between agents, or a memory/state 
+issue in multi-turn conversations. Walk through: what the symptom was, how we diagnosed 
+it, what the root cause was, what the fix was, and what safeguard we added.
+
+In Q-Verse we chose pgvector over Pinecone, FAISS, and Chroma DB. Explain the exact reason 
+for this choice — was it infrastructure simplicity (no separate vector DB), cost, latency, 
+or integration with existing PostgreSQL? What would have been the downside of using 
+Pinecone instead? What's the one thing pgvector can't do as well as dedicated vector DBs?
