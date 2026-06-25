@@ -791,3 +791,16 @@ Implement observability, telemetry, and monitoring instrumentation to ensure ope
 Maintain high code quality standards using Python best practices and Pydantic for data validation and schema enforcement.
 
 
+• Architected a multi-agent agentic framework (Master Orchestrator) using Python and LangGraph patterns, routing natural language
+user queries through a modular pipeline of 12+ specialized agents, enabling a unified NLQ-to-Insight workflow.
+• Built a Natural Language to SQL (NLQ-to-SQL) generation system backed by Gemini Flash, Gemini Pro, and Claude LLMs, incorporating
+pgvector-based semantic similarity search, ThinkForge cache lookup (complete/partial/hybrid modes), and confidence scoring to
+optimize query accuracy and reduce LLM token consumption.
+• Developed and optimized multi-database query generation capabilities supporting BigQuery, Teradata, PostgreSQL, and Oracle, enabling
+natural language-driven analytics across 4+ enterprise data platforms and processing 10K+ AI-generated queries per week, improving
+analyst productivity and reducing manual SQL development time by ~40%.
+• Developed AI-powered diagnostic agents for OOS ticket triage, root cause analysis, and automated summarization using LangGraph
+workflows and LLM integration with the VEGAS platform, incorporating advanced prompt engineering, confidence scoring algorithms,
+and evidence correlation systems for diagnostic log analysis, reducing manual intervention by 40%.
+• Implemented RAG (Retrieval Augmented Generation) systems with vector search capabilities using Elasticsearch, embedding
+generation, and context management for network engineering knowledge retrieval.
