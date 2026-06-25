@@ -724,7 +724,70 @@ that picked the wrong agent, a dependency deadlock between agents, or a memory/s
 issue in multi-turn conversations. Walk through: what the symptom was, how we diagnosed 
 it, what the root cause was, what the fix was, and what safeguard we added.
 
+
 In Q-Verse we chose pgvector over Pinecone, FAISS, and Chroma DB. Explain the exact reason 
 for this choice — was it infrastructure simplicity (no separate vector DB), cost, latency, 
 or integration with existing PostgreSQL? What would have been the downside of using 
 Pinecone instead? What's the one thing pgvector can't do as well as dedicated vector DBs?
+
+
+
+
+
+Position Details:                                                          
+
+Industry :Banking/Finance
+Work Location: Charlotte,NC / Pennington,NJ /Plano TX (hybrid)
+Job Title : Senior AI Backend Engineer – Agentic AI Platform
+Duration:12-18 Months(Contract ) Position Overview Senior AI Backend Engineer responsible for owning and evolving enterprise-scale agentic microservices and multi-agent AI workflows. 
+Role focuses on building scalable LLM-powered systems, RAG pipelines, and AI orchestration frameworks using Python, LangChain, and LangGraph. Day-to-Day •     Design and develop multi-agent AI systems and orchestration workflows. 
+•     Build FastAPI backend services and orchestration APIs using Python and Pydantic. 
+•     Develop scalable RAG pipelines using vector databases and relational data stores. 
+•     Integrate LLMs into enterprise workflows for automation and decision-making. 
+•     Implement observability, monitoring, and telemetry for AI services. 
+•     Drive architectural improvements, technical debt remediation, and new AI initiatives end-to-end. Must Haves 
+•     5+ years of software engineering experience focused on AI/ML and backend systems. 
+•     Strong Python, Pydantic, and FastAPI experience. 
+•     Deep hands-on experience with LangChain and LangGraph. 
+•     Strong understanding of LLMs, prompt engineering, and AI workflow design. 
+•     Experience building RAG pipelines and integrating vector databases like Elasticsearch. 
+•     Experience designing scalable AI/data processing workflows. 
+•     Ability to independently own and drive services end-to-end. Plusses 
+•     Frontend experience with React or TypeScript. 
+•     Experience with LangSmith or Galileo. 
+•     Familiarity with LLM fine-tuning concepts and AI observability tooling. 
+•     Background in data pipelines, analytics, or streaming systems. 
+•     Experience in enterprise or financial services environments.
+
+
+Must Haves:
+
+5+ years of software engineering experience with a strong focus on AI/ML engineering and backend systems.
+
+Expert-level Python and Pydantic — clean, production-grade, type-safe code.
+Deep hands-on experience with LangChain and LangGraph for building agentic and multi-agent systems.
+Strong understanding of Large Language Models (LLMs) — architecture, behavior, limitations, and prompt/context engineering.
+Experience integrating vector databases into RAG workflows; Elasticsearch strongly preferred.
+Demonstrated ability to design agentic workflows that handle big data processing at scale.
+Familiarity with LLM fine-tuning and training concepts (conceptual understanding required; not expected to run training jobs).
+Experience building and consuming RESTful APIs with FastAPI.
+
+Key Responsibilities
+
+Architect and develop LangChain/LangGraph-based multi-agent systems for enterprise workloads.
+
+Design and expose backend services and orchestration APIs using FastAPI and Python.
+
+Engineer scalable agentic workflows capable of processing and reasoning over large volumes of data (big data pipelines, streaming, batch processing).
+
+Build and optimize Retrieval-Augmented Generation (RAG) workflows integrating vector databases (Elasticsearch strongly preferred) and relational data stores.
+
+Apply expert-level prompt and context engineering techniques to maximize LLM reliability and performance.
+
+Leverage working knowledge of LLM model architectures, fine-tuning concepts, and training methodologies to inform design decisions (hands-on fine-tuning/training not required).
+
+Implement observability, telemetry, and monitoring instrumentation to ensure operational health of agentic services.
+
+Maintain high code quality standards using Python best practices and Pydantic for data validation and schema enforcement.
+
+
